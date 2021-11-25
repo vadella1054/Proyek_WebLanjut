@@ -19,9 +19,21 @@ class Buku extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => '100',
         ],
+        'penulis'       => [
+            'type'           => 'VARCHAR',
+            'constraint'     => '100',
+        ],
+        'penerbit'       => [
+            'type'           => 'VARCHAR',
+            'constraint'     => '100',
+        ],
+        'genre'       => [
+            'type'           => 'VARCHAR',
+            'constraint'     => '100',
+        ],
         'deskripsi_buku' => [
-                'type'           => 'TEXT',
-                'null'           => TRUE,
+            'type'           => 'VARCHAR',
+            'constraint'     => '1000',
         ],
         'harga_buku' => [
                 'type'           => 'INT',

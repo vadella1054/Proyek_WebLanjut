@@ -19,6 +19,7 @@
       <hr class="my-4">
       <p>Website ini sedang dalam pengembangan.</p>
       <a class="btn btn-primary btn-lg" href="<?= base_url('login/logout'); ?>" role="button">Logout</a>
+      <a class="btn btn-primary btn-lg" href="<?= base_url('buku/index'); ?>" role="button">buku</a>
    </div>
 
    <!-- Optional JavaScript -->

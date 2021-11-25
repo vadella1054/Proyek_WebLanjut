@@ -42,9 +42,6 @@ $routes->setAutoRoute(true);
 //     echo view ('layouts/footer');
 // });
 
-$routes->get('/', 'Login::index');
-$routes->get('/posts', 'PostController::index');
-
 $routes->get('/about', function (){
 	$data = [
 		'title' => "Blog - About"
@@ -54,6 +51,13 @@ $routes->get('/about', function (){
     echo view ('v_about');
     echo view ('layouts/footer');
 });
+
+$routes->get('/login', 'Login::index');
+$routes->get('/buku', 'Buku::index');
+$routes->get('/buku/create', 'Buku::create');
+$routes->get('/buku/store', 'Buku::store');
+$routes->get('/posts', 'PostController::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

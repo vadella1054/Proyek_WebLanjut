@@ -1,25 +1,49 @@
-<!doctype html>
-<html lang="en">
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
 
 <head>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-   <title>Login Form</title>
+	<title>Working Signin form Responsive Widget Template :: W3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		content="Working Signin form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<!-- //Meta tag Keywords -->
+	<link href="//fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="<?= base_url('/assets/css/style.css') ?>" />
+	<!--//Style-CSS -->
 </head>
 
 <body>
+
+	 <!-- form section start -->
+	 <section class="w3l-workinghny-form">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="wrapper">
+                <div class="logo">
+                    <h1><a class="brand-logo"><span>Toko Buku</span> Kyndera</a></h1>
+                    <!-- if logo is image enable this   
+                        <a class="brand-logo" href="#index.html">
+                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                        </a> -->
+                </div>
+                <div class="workinghny-block-grid">
+                    <div class="workinghny-left-img align-end">
+                    <img src="/assets/images/1.png" style="opacity: 1">
+                    </div>
 
    <div class="container">
       <div class="row">
          <div class="col-md-4 mx-auto pt-5">
             <form method="POST" action="<?= base_url('login/login_action'); ?>">
                <div class="form-group">
-                  <label for="username">username</label>
+                  <label for="username">Username</label>
                   <input type="username" name="username" class="form-control" id="username" aria-describedby="usernameHelp">
                   <small id="usernameHelp" class="form-text text-muted">Masukkan username yang telah terdaftar.</small>
                </div>
@@ -27,7 +51,7 @@
                   <label for="password">Password</label>
                   <input type="password" name="password" class="form-control" id="password">
                </div>
-               <button type="submit" class="btn btn-primary">Login</button>
+               <button type="submit" class="btn btn-style mt-3">Login</button>
             </form>
             <p>
                <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
@@ -39,12 +63,18 @@
          </div>
       </div>
    </div>
+        <!-- //form -->
+        <!-- copyright-->
+        <div class="copyright text-center">
+            <div class="wrapper">
+                <p class="copy-footer-29">© 2020 Working Sign In. All rights reserved | Design by <a
+                        href="https://w3layouts.com">W3layouts</a></p>
+            </div>
+        </div>
+        <!-- //copyright-->
+    </section>
+    <!-- //form section start -->
 
-   <!-- Optional JavaScript -->
-   <!-- jQuery, Popper.js, Bootstrap JS -->
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
 </html>
