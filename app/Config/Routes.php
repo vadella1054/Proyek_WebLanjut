@@ -32,19 +32,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', function () {
-// 	$data = [
-// 		'title' => "Blog - Home"
-// 	];
-// 	echo view ('layouts/header',$data);
-// 	echo view ('layouts/navbar');
-//     echo view ('v_home');
-//     echo view ('layouts/footer');
-// });
+
+$routes->get('/', function () {
+	$data = [
+		'title' => "Home"
+	];
+	echo view ('layouts/header',$data);
+	echo view ('layouts/navbar');
+    echo view ('v_home');
+    echo view ('layouts/footer');
+});
 
 $routes->get('/about', function (){
 	$data = [
-		'title' => "Blog - About"
+		'title' => "About"
 	];
 	echo view ('layouts/header',$data);
 	echo view ('layouts/navbar');
@@ -52,11 +53,20 @@ $routes->get('/about', function (){
     echo view ('layouts/footer');
 });
 
+$routes->get('/catalog', 'PostController::index');
+
+$routes->get('/register', 'Register::index');
 $routes->get('/login', 'Login::index');
+
+// $routes->get('/buku', 'Buku::index',['filter' => 'auth']);
 $routes->get('/buku', 'Buku::index');
 $routes->get('/buku/create', 'Buku::create');
-$routes->get('/buku/store', 'Buku::store');
-$routes->get('/posts', 'PostController::index');
+$routes->post('/buku/store', 'Buku::store');
+$routes->get('/buku/edit/(:num)', 'Buku::edit/$1');
+$routes->post('/buku/update/(:num)', 'Buku::update/$1');
+$routes->delete('buku/(:num)', 'Buku::delete/$1');
+
+
 
 /*
  * --------------------------------------------------------------------

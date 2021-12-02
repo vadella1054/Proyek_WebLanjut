@@ -1,38 +1,79 @@
 <?php
-
 namespace App\Controllers;
+use App\Controllers\BaseController;
 use App\Models\M_user;
 
 class Login extends BaseController
 {
-	public function index()
-	{
-		return view('form_login');
-	}
 
-    public function login_action()
-	{
-		$usermodel = new M_user();
+    public function index()
+    {
+        helper(['form']);
+        $data = [];
+        echo view('form_login', $data);
+        
+    } 
 
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+    public function auth()
+    {
 
-        $cek = $usermodel->get_user($username, $password);
+        helper(['form']);
+		//set rules validation form
+		$rules = [
+			"username" => [
+				"label" => "Username",
+				"rules" => "required",
+				"errors" => [
+					"required" => "{field} Harus Diisi!",
+				]
+            ],
+            "password" => [
+				"label" => "Password",
+				"rules" => "required",
+				"errors" => [
+					"required" => "{field} Harus Diisi!",
+				]
+			]
+		];
 
-        if (($cek['username'] == $username) && ($cek['password'] == $password)) {
-            session()->set('username', $cek['username']);
-            session()->set('email', $cek['email']);
-            session()->set('id_user', $cek['id_user']);
-            return redirect()->to(base_url('user'));
-        } else {
-            session()->setFlashdata('gagal', 'Username / Password salah');
-            return redirect()->to(base_url('login'));
-      }
-	}
+        if($this->validate($rules)){
+            $session = session();
+            $model = new M_user();
+            $username = $this->request->getVar('username');
+            $password = $this->request->getVar('password');
+            $data = $model->where('username', $username)->first();
+            if($data){
+                $pass = $data['password'];
+                $verify_pass = password_verify($password, $pass);
+                if($verify_pass){
+                    $ses_data = [
+                        'username'  => $data['username'],
+                        'email'     => $data['email'],
+                        'logged_in' => TRUE
+                    ];
+                    $session->set($ses_data);
+                    $session->setFlashdata('success', 'Login Berhasil');
+                    return redirect()->to('/buku/index');
+                }else{
+                    $session->setFlashdata('pesan', 'Password Salah!!!');
+                    return redirect()->to('/login');
+                }
+            }else{
+                $session->setFlashdata('pesan', 'Username belum terdaftar!!');
+                return redirect()->to('/login');
+            }
+        }
+        else{
+            $data['validation'] = $this->validator;
+			echo view('form_login', $data);
+        }
+    }
 
-    public function logout() {
-      session()->destroy();
-      return redirect()->to(base_url('login'));
+    public function logout()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/');
     }
 
 }

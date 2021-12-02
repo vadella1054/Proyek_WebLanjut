@@ -4,9 +4,7 @@ use CodeIgniter\Model;
  
 class M_user extends Model
 {
-    public function get_user($username, $password) {
-        return $this->db->table('user')
-        ->where(array('username' => $username, 'password' => $password))
-        ->get()->getRowArray();
-    }
+    protected $table = 'user';
+    protected $allowedFields = ['username','password','email'];
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Nov 2021 pada 14.42
+-- Waktu pembuatan: 27 Nov 2021 pada 07.07
 -- Versi server: 10.4.16-MariaDB
 -- Versi PHP: 7.4.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tokobuku`
+-- Database: `tb_kylera`
 --
 
 -- --------------------------------------------------------
@@ -28,11 +28,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `buku` (
-  `id_buku` int(11) UNSIGNED NOT NULL,
+  `id_buku` int(11) NOT NULL,
   `nama_buku` varchar(100) NOT NULL,
-  `deskripsi_buku` text DEFAULT NULL,
-  `harga_buku` int(11) DEFAULT NULL
+  `penulis` varchar(255) NOT NULL,
+  `penerbit` varchar(255) NOT NULL,
+  `genre` varchar(255) NOT NULL,
+  `deskripsi_buku` text NOT NULL,
+  `harga_buku` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `buku`
+--
+
+INSERT INTO `buku` (`id_buku`, `nama_buku`, `penulis`, `penerbit`, `genre`, `deskripsi_buku`, `harga_buku`) VALUES
+(1, 'Snapshoot', 'J.K.Ruler', 'Yuki PT', 'Fiksi Ilmiah', 'Belum Ada', 10000),
+(2, 'You Make My Dawn', 'Bambang', 'Yuki PT', 'Thriller', 'Belum Ada', 57000),
+(5, 'Second Life', 'Bambang', 'Gatau', 'coba', 'Belum Ada', 57000),
+(9, 'Fear', 'Kartika', 'Yuki PT', 'Thriller', 'Belum Ada', 10000);
 
 -- --------------------------------------------------------
 
@@ -65,7 +78,6 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 --
 
 CREATE TABLE `user` (
-  `id_user` varchar(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL
@@ -75,8 +87,8 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `email`) VALUES
-('1', 'admin', 'admin123', 'admin@admin.com');
+INSERT INTO `user` (`username`, `password`, `email`) VALUES
+('yuki', '$2y$10$MnOEgmJ/.HsuuX7OOBAfIuXxIp1U/f1LawUzlpP6B1BsOW2reXVCi', 'ummuqaltsum11@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -98,7 +110,7 @@ ALTER TABLE `migrations`
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -108,7 +120,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`

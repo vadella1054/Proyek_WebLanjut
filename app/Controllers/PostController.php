@@ -9,7 +9,7 @@ class PostController extends BaseController
 	public function index()
 	{
 	$data = [
-		'title' => "Blog - Posts"
+		'title' => "Catalog"
 	];
 	echo view ('layouts/header', $data);
 	echo view ('layouts/navbar');

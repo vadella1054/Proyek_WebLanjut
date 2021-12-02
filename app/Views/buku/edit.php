@@ -100,15 +100,14 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                Form Tambah Data
-            </div>
+                Form Edit Data
             <div class="card-body">
-              <form action="/buku/store" method="POST">
+              <form action="/buku/update/<?=$post['id_buku'];?>" method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                             <label for="nama_buku">Judul Buku</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('nama_buku')) ? 'is-invalid' : ''; ?>" id="nama_buku" name="nama_buku" value="<?= old('nama_buku'); ?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('nama_buku')) ? 'is-invalid' : ''; ?>" id="nama_buku" name="nama_buku" value="<?= (old('nama_buku')) ? old('nama_buku') : $post['nama_buku'];?>">
                                 <?php if ($validation->hasError('nama_buku')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("nama_buku"); ?>
@@ -118,7 +117,7 @@
 
                             <div class="form-group">
                                 <label for="penulis">Penulis</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('penulis')) ? 'is-invalid' : ''; ?>" id="penulis" name="penulis" value="<?= old('penulis'); ?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('penulis')) ? 'is-invalid' : ''; ?>" id="penulis" name="penulis" value="<?= (old('penulis')) ? old('penulis') : $post['penulis'];?>">
                                 <?php if ($validation->hasError('penulis')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("penulis"); ?>
@@ -128,7 +127,7 @@
 
                             <div class="form-group">
                                 <label for="penerbit">Penerbit</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('penerbit')) ? 'is-invalid' : ''; ?>" id="penerbit" name="penerbit" value="<?= old('penerbit'); ?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('penerbit')) ? 'is-invalid' : ''; ?>" id="penerbit" name="penerbit" value="<?= (old('penerbit')) ? old('penerbit') : $post['penerbit'];?>">
                                 <?php if ($validation->hasError('penerbit')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("penerbit"); ?>
@@ -138,7 +137,7 @@
 
                             <div class="form-group">
                                 <label for="genre">Genre</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('genre')) ? 'is-invalid' : ''; ?>" id="genre" name="genre" value="<?= old('genre'); ?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('genre')) ? 'is-invalid' : ''; ?>" id="genre" name="genre" value="<?= (old('genre')) ? old('genre') : $post['genre'];?>">
                                 <?php if ($validation->hasError('genre')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("genre"); ?>
@@ -148,7 +147,7 @@
 
                             <div class="form-group">
                                 <label for="deskripsi_buku">Deskripsi Buku</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('deskripsi_buku')) ? 'is-invalid' : ''; ?>" id="deskripsi_buku" name="deskripsi_buku" value="<?= old('deskripsi_buku'); ?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('deskripsi_buku')) ? 'is-invalid' : ''; ?>" id="deskripsi_buku" name="deskripsi_buku" value="<?= (old('deskripsi_buku')) ? old('deskripsi_buku') : $post['deskripsi_buku'];?>">
                                 <?php if ($validation->hasError('deskripsi_buku')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("deskripsi_buku"); ?>
@@ -157,7 +156,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="harga_buku">Harga Buku</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('harga_buku')) ? 'is-invalid' : ''; ?>" id="harga_buku" name="harga_buku" value="<?= old('harga_buku'); ?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('harga_buku')) ? 'is-invalid' : ''; ?>" id="harga_buku" name="harga_buku" value="<?= (old('harga_buku'))  ? old('harga_buku') : $post['harga_buku'];?>">
                                 <?php if ($validation->hasError('harga_buku')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("harga_buku"); ?>
@@ -165,7 +164,7 @@
                                 <?php endif; ?>         
                             </div>
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-plus"></i> Simpan
+                                <i class="fas fa-plus"></i> Edit data
                             </button>
                     </div>
                 </form>
