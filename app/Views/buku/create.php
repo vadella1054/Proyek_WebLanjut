@@ -103,7 +103,7 @@
                 Form Tambah Data
             </div>
             <div class="card-body">
-              <form action="/buku/store" method="POST">
+              <form action="/buku/store" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -112,6 +112,16 @@
                                 <?php if ($validation->hasError('nama_buku')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("nama_buku"); ?>
+                                  </div>
+                                <?php endif; ?>         
+                            </div>
+
+                            <div class="form-group">
+                            <label for="deskripsi_buku">Deskripsi Buku</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('deskripsi_buku')) ? 'is-invalid' : ''; ?>" id="deskripsi_buku" name="deskripsi_buku" value="<?= old('deskripsi_buku'); ?>">
+                                <?php if ($validation->hasError('deskripsi_buku')) : ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("deskripsi_buku"); ?>
                                   </div>
                                 <?php endif; ?>         
                             </div>
@@ -138,7 +148,15 @@
 
                             <div class="form-group">
                                 <label for="genre">Genre</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('genre')) ? 'is-invalid' : ''; ?>" id="genre" name="genre" value="<?= old('genre'); ?>">
+                                <select class="form-control <?= ($validation->hasError('genre')) ? 'is-invalid' : ''; ?>" id="genre" name="genre" value="<?= old('genre'); ?>">
+                                <option>Novel</option>
+                                <option>Buku Anak-anak</option>
+                                <option>Komik</option>
+                                <option>Fiksi</option>
+                                <option>Non-Fiksi</option>
+                                <option>Sastra</option>
+                                <option>Horror</option>
+                                </select>
                                 <?php if ($validation->hasError('genre')) : ?>
                                   <div class="invalid-feedback">
                                     <?= $validation->getError("genre"); ?>
@@ -147,11 +165,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="deskripsi_buku">Deskripsi Buku</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('deskripsi_buku')) ? 'is-invalid' : ''; ?>" id="deskripsi_buku" name="deskripsi_buku" value="<?= old('deskripsi_buku'); ?>">
-                                <?php if ($validation->hasError('deskripsi_buku')) : ?>
+                                <label for="status">Status Barang</label>
+                                <select class="form-control <?= ($validation->hasError('status')) ? 'is-invalid' : ''; ?>" id="status" name="status" value="<?= old('status'); ?>">
+                                <option>Ready Stok</option>
+                                <option>Pre-Order</option>
+                                <option>SOLD OUT</option>
+                                </select>
+                                <?php if ($validation->hasError('status')) : ?>
                                   <div class="invalid-feedback">
-                                    <?= $validation->getError("deskripsi_buku"); ?>
+                                    <?= $validation->getError("status"); ?>
                                   </div>
                                 <?php endif; ?>         
                             </div>
@@ -163,6 +185,20 @@
                                     <?= $validation->getError("harga_buku"); ?>
                                   </div>
                                 <?php endif; ?>         
+                            </div>
+                            <div class="form-group">
+                            <label for="cover">Cover Buku</label>
+                            <!-- <div><img src="/img/default.png" class="img-thumbnail"></div> -->
+                                <div>
+                                  <!-- <input type="file" id="cover" name="cover" class="custom-file-input <?= ($validation->hasError('cover')) ? 'is-invalid' : ''; ?>"> -->
+                                  <input type="file" id="cover" name="cover" class="form-control <?= ($validation->hasError('cover')) ? 'is-invalid' : ''; ?>">
+                                  <?php if ($validation->hasError('cover')) : ?>
+                                    <div class="invalid-feedback">
+                                      <?= $validation->getError("cover"); ?>
+                                    </div>
+                                  <?php endif; ?>   
+                                  <!-- <label for="cover" class="custom-file-label">pilih cover..</label> -->
+                                </div>      
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-plus"></i> Simpan

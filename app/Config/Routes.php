@@ -53,10 +53,12 @@ $routes->get('/about', function (){
     echo view ('layouts/footer');
 });
 
-$routes->get('/catalog', 'PostController::index');
+$routes->get('/catalog', 'Catalog::index');
+$routes->get('/catalog/(:segment)', 'Catalog::detail/$1');
 
 $routes->get('/register', 'Register::index');
 $routes->get('/login', 'Login::index');
+$routes->get('/admin', 'Login::index');
 
 // $routes->get('/buku', 'Buku::index',['filter' => 'auth']);
 $routes->get('/buku', 'Buku::index');

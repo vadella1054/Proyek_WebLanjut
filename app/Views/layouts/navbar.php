@@ -19,10 +19,5 @@
         </li>
       </ul>
     </div>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= base_url('/login'); ?>" class="nav-link" style="color: #000080">Login</a>
-      </li>
-    </ul>
   </div>
 </nav>

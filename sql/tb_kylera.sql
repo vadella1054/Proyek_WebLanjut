@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2021 pada 07.07
+-- Waktu pembuatan: 13 Des 2021 pada 05.42
 -- Versi server: 10.4.16-MariaDB
 -- Versi PHP: 7.4.12
 
@@ -34,18 +34,34 @@ CREATE TABLE `buku` (
   `penerbit` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
   `deskripsi_buku` text NOT NULL,
-  `harga_buku` int(11) NOT NULL
+  `harga_buku` int(11) NOT NULL,
+  `cover` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`id_buku`, `nama_buku`, `penulis`, `penerbit`, `genre`, `deskripsi_buku`, `harga_buku`) VALUES
-(1, 'Snapshoot', 'J.K.Ruler', 'Yuki PT', 'Fiksi Ilmiah', 'Belum Ada', 10000),
-(2, 'You Make My Dawn', 'Bambang', 'Yuki PT', 'Thriller', 'Belum Ada', 57000),
-(5, 'Second Life', 'Bambang', 'Gatau', 'coba', 'Belum Ada', 57000),
-(9, 'Fear', 'Kartika', 'Yuki PT', 'Thriller', 'Belum Ada', 10000);
+INSERT INTO `buku` (`id_buku`, `nama_buku`, `penulis`, `penerbit`, `genre`, `deskripsi_buku`, `harga_buku`, `cover`, `status`) VALUES
+(31, 'Jujutsu Kaisen Vol.11', 'Gege Akutami', 'Viz Media, Subs. of Shogakukan Inc', 'Komik', 'Komik Manga, Original English Version', 160000, 'JK Vol11.jpg', 'Ready Stok'),
+(32, 'The Promise Neverland Vol.6', 'Kaiu Shirai', 'Elex Media Komputiondo', 'Komik', 'Komik Manga, Bahasa Indonesia', 22400, 'tpn vol6.jpg', 'Ready Stok'),
+(33, 'Kimetsu no Yaiba Vol.19', 'Koyoharu Gotouge', 'Viz Media, Subs. of Shogakukan Inc', 'Komik', 'Komik Manga, Original English Version', 205000, 'ds vol19.jpg', 'Pre-Order'),
+(34, 'Spy x Family Vol.5', 'Tatsuya Endo', 'Viz Media LLC', 'Komik', 'Komik Manga, Original English Version', 168000, 'sf vol5.jpg', 'Ready Stok'),
+(35, 'Tokyo Ghoul: re Vol.9', 'Sui Ishida', 'Viz Media', 'Komik', 'Komik Manga, Original English Version', 311000, 'TGre VOL9.jpg', 'Ready Stok'),
+(41, 'Cool Boy vs Cool Girl', 'Prisma Cintya', 'Loveable', 'Fiksi', 'Novel Remaja, Fanfiction, Bahasa Indonesia', 64000, 'coolboycoolgirl.jpg', 'Ready Stok'),
+(42, 'Mantappu Jiwa', 'Jerome Polin Sijabat', 'Gramedia Pustaka Utama', 'Non-Fiksi', 'Buku Latihan Soal, Bahasa Indonesia', 88000, 'mantappu jiwa.jpg', 'Ready Stok'),
+(43, 'Murder At Shijinso', 'Imamura Masahiro', 'Haru', 'Horror', 'Bahasa Indonesia', 70000, 'Murder aS.jpg', 'Ready Stok'),
+(44, 'Alaska', 'Nisaafatm', 'Bintang Media', 'Novel', 'Bahasa Indonesia', 84000, 'alaska.jpg', 'Ready Stok'),
+(45, 'Black Clover Vol.25', 'Yuka Tabata', 'Viz Media', 'Komik', 'Komik Manga, Original English Version', 287000, 'BLACK CLOVER 25.jpg', 'Pre-Order'),
+(46, 'Statistika untuk Penelitian', 'Prof. Dr. Sugiyono', 'Alfabeta', 'Non-Fiksi', 'Bahasa Indonesia', 38000, 'statistikapenelitian.jpg', 'Ready Stok'),
+(47, 'Sejarah Peradaban Islam', 'Dedi Supriyadi', 'Pustaka Setia', 'Non-Fiksi', 'Buku Sejarah, Bahasa Indonesia', 37000, 'spi.jpg', 'Ready Stok'),
+(48, 'Hazel Eyes', 'Cindy Viranti', 'Aksara Plus', 'Fiksi', 'Novel Remaja, Bahasa Indonesia', 58000, 'hazeleyes.jpg', 'Ready Stok'),
+(49, 'Seni untuk Bersikap Bodo Amat', 'Mark Manson', 'Grasindo', 'Non-Fiksi', 'Soft Cover, Bahasa Indonesia', 64000, 'bodoamat.jpg', 'SOLD OUT'),
+(50, 'Sapiens', 'Yuval Noah Harari', 'Kpg', 'Non-Fiksi', 'Sejarah Dunia, Bahasa Indonesia, Soft Cover', 99000, 'sapiens.jpg', 'SOLD OUT'),
+(51, 'The Keeper of Night', 'Kylie Lee Baker', 'Inkyard PR Publication', 'Novel', 'Original Edition, English', 420000, 'tkon.jpg', 'Pre-Order'),
+(52, 'The Collective', 'Alison Gaylin', 'HarperCollins Publishers', 'Fiksi', 'Original, English, Hard Cover', 155500, 'tc.jpg', 'Pre-Order'),
+(53, 'Chainsaw Man Vol.1', 'Tatsuki Fujimoto', 'Shueisha', 'Komik', 'Komik Manga, Original Japan Version', 385000, 'cm vol1.jpg', 'Pre-Order');
 
 -- --------------------------------------------------------
 
@@ -120,7 +136,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`

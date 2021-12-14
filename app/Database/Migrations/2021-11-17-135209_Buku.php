@@ -40,6 +40,14 @@ class Buku extends Migration
                 'constraint'     => 11,
                 'null'           => TRUE,
         ],
+        'status'       => [
+            'type'           => 'VARCHAR',
+            'constraint'     => '100',
+        ],
+        'cover'       => [
+            'type'           => 'VARCHAR',
+            'constraint'     => '100',
+        ],
     ]);
     $this->forge->addKey('id_buku', TRUE);
     $this->forge->createTable('buku');

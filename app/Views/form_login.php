@@ -39,7 +39,6 @@ Author URL: http://w3layouts.com
                 </div>
                   <div class="workinghny-block-grid">
                     <div class="workinghny-left-img align-end">
-                    <img src="/assets/images/1.png" style="opacity: 1">
                     <!-- <center><a href="/" class="btn btn-style mt-3">Kembali ke Home</a></center> -->
                     <?php if(isset($validation)):?>
                         <div align="center" style="color: #FF0000;"><?= $validation->listErrors() ?></div>
@@ -54,6 +53,7 @@ Author URL: http://w3layouts.com
                            <?= session()->getFlashdata('success'); ?>
                         </div>
                      <?php endif; ?>
+                     <img src="/assets/images/1.png" style="opacity: 1">
                   </div>
 
          <div class="container">
@@ -74,9 +74,6 @@ Author URL: http://w3layouts.com
                      </div>
                      <button type="submit" class="btn btn-style mt-3">Login</button>
                   <br><br>
-                  <div class="text-center mt-4">
-                        <a class="small" href="<?= base_url('/register') ?>">Belum punya akun? Daftar</a>
-                  </div>
                   <br>
                   <!-- <div align="center"><a href="/" class="btn btn-style mt-3">Kembali ke Home</a></div> -->
                   <div align="center"><a href="/">Kembali ke Home</a></div>

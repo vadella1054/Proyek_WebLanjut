@@ -82,10 +82,10 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Buku</h1>
-          </div><!-- /.col -->
+            <!-- <h1 class="m-0">Data Buku</h1> -->
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -104,55 +104,53 @@
           <?= session()->getFlashdata('success'); ?>
         </div>
     <?php endif; ?>
-      <div class="container-fluid">
-        <a href="/buku/create" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Data</a>
-        <div class="row">
-          <div class="col-6">
-            <br>
-            <br>
-            <h4 class = "mt-2">Daftar Buku</h4>
+      <div class="container-fluid">   
+          <div class="col">
+            <h2>Daftar Buku</h2><br>
             <form action="" method="post">
-            <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Masukkan keyword pencarian .." name="keyword">
-            <div class="input-group=append">
-            <button class="btn btn-outline-primary" type="submit" name="submit">Cari</button>
-            </div>
-            </div>
-            </form>
-            </div>
-          </div>
-          <div class="card-body">
+              <div class="input-group mb-2">
+              <input type="text" class="form-control" placeholder="Masukkan keyword pencarian .." name="keyword">
+              <div class="input-group=append">
+              <button class="btn btn-outline-primary" type="submit" name="submit">Cari</button>
+              </div>
+              <div class="col-md-7" align="right"><a href="/buku/create" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Data</a></div>  
+              </div>
+            </form> 
+          </div> 
+        <div class="card-body">
           <div class="table-responsive">
             <table class="table table-striped text-center">
               <thead>
                 <tr>
                 <th scope="col">No.</h>
-                  <th width="150px"scope="col">Judul Buku</h>
-                  <th width="150px"scope="col">Penulis</h>
-                  <th width="150px"scope="col">Penerbit</h>
-                  <th scope="col">Genre</h>
-                  <th width="300px" scope="col">Deskripsi Buku</h>
-                  <th width="100px" scope="col">Harga Buku</h>
-                  <th scope="col">Aksi</h>
+                  <th width="200px" scope="col">Cover Buku</h>
+                  <th width="150px" scope="col">Judul Buku</h>
+                  <th width="150px" scope="col">Penulis</h>
+                  <th width="150px" scope="col">Penerbit</h>
+                  <th width="100px" scope="col">Genre</h>
+                  <th width="150px" scope="col">Status</h>
+                  <th width="100px" scope="col">Harga</h>
+                  <th width="150px" scope="col">Aksi</h>
                 </tr>
               </thead>
               <tbody>
-              <?php $i = 1 + (4 * ($currentPage - 1)); ?>
+              <?php $i = 1 + (5 * ($currentPage - 1)); ?>
               <?php foreach ($buku as $post) : ?>
                   <tr>
                   <th scope="row"><?= $i++; ?></th>
+                  <td><img length="100px" width="100px" src="/img/<?= $post['cover'];?>" class="cover"></td>
                   <td><?= $post['nama_buku'] ?></td>
                   <td><?= $post['penulis'] ?></td>
                   <td><?= $post['penerbit'] ?></td>
                   <td><?= $post['genre'] ?></td>
-                  <td><?= $post['deskripsi_buku'] ?></td>
+                  <td><?= $post['status'] ?></td>
                   <td><?= $post['harga_buku'] ?></td>
                   <td>
-                  <a href="/buku/edit/<?= $post['id_buku']; ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i> Edit</a>
+                  <a href="/buku/edit/<?= $post['id_buku']; ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i></a>
                   <form action="/buku/<?= $post['id_buku']; ?>" method="post" class="d-inline">
                       <?= csrf_field(); ?>
                       <input type="hidden" name="_method" value="delete">
-                      <button type="submit" class="btn btn-sm btn-danger me-1" onclick="return confirm('Apakah Anda yakin ingin menghapus?');" style="color: #000000"><i class="fas fa-trash"></i> Hapus</button>
+                      <button type="submit" class="btn btn-sm btn-danger me-1" onclick="return confirm('Apakah Anda yakin ingin menghapus?');" style="color: #000000"><i class="fas fa-trash"></i></button>
                       </form>
                   </td>
                 </tr>
