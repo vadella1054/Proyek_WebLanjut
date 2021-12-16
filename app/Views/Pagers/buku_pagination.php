@@ -33,7 +33,7 @@
             <a class="page-link" href="<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
                 <span aria-hidden="true"><?= lang('Pager.last') ?></span>
             </a>
-        </li>
+        </li> 
     <?php endif ?>
     </ul>
 </nav>
